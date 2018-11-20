@@ -2,76 +2,56 @@ package it.polito.tdp.flight.model;
 
 public class Route {
 
-	private String airline;
-	private int airlineId;
-	private String sourceAirport;
-	private int sourceAirportId;
-	private String destinationAirport;
-	private int destinationAirportId;
+	private int routeId;
+	private Airline airline;
+	private Airport sourceAirport;
+	private Airport destinationAirport;
 	private String codeshare;
 	private int stops;
 	private String equipment;
 
-	public Route(String airline, int airlineId, String sourceAirport, int sourceAirportId, String destinationAirport,
-			int destinationAirportId, String codeshare, int stops, String equipment) {
-		super();
+	public Route(int routeId, Airline airline, Airport sourceAirport, Airport destinationAirport,
+			String codeshare, int stops, String equipment) {
+		this.routeId = routeId;
 		this.airline = airline;
-		this.airlineId = airlineId;
 		this.sourceAirport = sourceAirport;
-		this.sourceAirportId = sourceAirportId;
 		this.destinationAirport = destinationAirport;
-		this.destinationAirportId = destinationAirportId;
 		this.codeshare = codeshare;
 		this.stops = stops;
 		this.equipment = equipment;
+		
 	}
 
-	public String getAirline() {
+	public int getRouteId() {
+		return routeId;
+	}
+
+	public void setRouteId(int routeId) {
+		this.routeId = routeId;
+	}
+
+	public Airline getAirline() {
 		return airline;
 	}
 
-	public void setAirline(String airline) {
+	public void setAirline(Airline airline) {
 		this.airline = airline;
 	}
 
-	public int getAirlineId() {
-		return airlineId;
-	}
-
-	public void setAirlineId(int airlineId) {
-		this.airlineId = airlineId;
-	}
-
-	public String getSourceAirport() {
+	public Airport getSourceAirport() {
 		return sourceAirport;
 	}
 
-	public void setSourceAirport(String sourceAirport) {
+	public void setSourceAirport(Airport sourceAirport) {
 		this.sourceAirport = sourceAirport;
 	}
 
-	public int getSourceAirportId() {
-		return sourceAirportId;
-	}
-
-	public void setSourceAirportId(int sourceAirportId) {
-		this.sourceAirportId = sourceAirportId;
-	}
-
-	public String getDestinationAirport() {
+	public Airport getDestinationAirport() {
 		return destinationAirport;
 	}
 
-	public void setDestinationAirport(String destinationAirport) {
+	public void setDestinationAirport(Airport destinationAirport) {
 		this.destinationAirport = destinationAirport;
-	}
-
-	public int getDestinationAirportId() {
-		return destinationAirportId;
-	}
-
-	public void setDestinationAirportId(int destinationAirportId) {
-		this.destinationAirportId = destinationAirportId;
 	}
 
 	public String getCodeshare() {
@@ -102,9 +82,7 @@ public class Route {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + airlineId;
-		result = prime * result + destinationAirportId;
-		result = prime * result + sourceAirportId;
+		result = prime * result + routeId;
 		return result;
 	}
 
@@ -117,28 +95,17 @@ public class Route {
 		if (getClass() != obj.getClass())
 			return false;
 		Route other = (Route) obj;
-		if (airlineId != other.airlineId)
-			return false;
-		if (destinationAirportId != other.destinationAirportId)
-			return false;
-		if (sourceAirportId != other.sourceAirportId)
+		if (routeId != other.routeId)
 			return false;
 		return true;
 	}
 
-	// @Override
-	// public String toString() {
-	// return "Route [airline=" + airline + ", airlineId=" + airlineId + ",
-	// sourceAirport=" + sourceAirport
-	// + ", sourceAirportId=" + sourceAirportId + ", destinationAirport=" +
-	// destinationAirport
-	// + ", destinationAirportId=" + destinationAirportId + ", codeshare=" +
-	// codeshare + ", stops=" + stops
-	// + ", equipment=" + equipment + "]";
-	// }
-
 	@Override
 	public String toString() {
-		return "airline=" + airline + ", sourceAirport=" + sourceAirport + ", destinationAirport=" + destinationAirport;
+		return "Route [airline=" + airline + ", sourceAirport=" + sourceAirport + ", destinationAirport="
+				+ destinationAirport + "]";
 	}
+
+	
+
 }
